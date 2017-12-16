@@ -3,6 +3,7 @@
 }
 
 .bill .header {
+    padding-bottom: 15px;
     font-size: 2em;
     font-weight: 500;
 }
