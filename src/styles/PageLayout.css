@@ -1,0 +1,13 @@
+.page-layout > .header {
+    padding: 20px 10px;
+    background-color: #2F353F;
+}
+
+.page-layout .navs button {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.page-layout > .content {
+    padding: 20px 0;
+}
