@@ -5,3 +5,8 @@ export const getBillForm = ({custNum, coupons}) => ({
     custNum,
     coupons
 })
+
+export const getCustNum = (custNum) => ({
+    type: types.GET_CUST_NUM,
+    custNum
+})

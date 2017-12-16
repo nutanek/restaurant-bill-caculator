@@ -17,6 +17,12 @@ const bill = (state = initialState, action = {}) => {
                 coupons: action.coupons
             }
             break
+        case types.GET_CUST_NUM:
+            return {
+                ...state,
+                custNum: action.custNum
+            }
+            break
         default:
             return state
             break

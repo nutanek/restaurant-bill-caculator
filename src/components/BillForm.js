@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 
 class BillForm extends Component {
     render() {
+        const { custNum, coupons, getCustNum } = this.props
         return (
             <div>
                 <div className="form-group">
                     <label>Total customers:</label>
-                    <input type="number" className="form-control"/>
+                    <input type="number" className="form-control" onKeyUp={(e)=>getCustNum(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label>Coupon Code:</label>
@@ -18,7 +19,9 @@ class BillForm extends Component {
                     </div>
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-success btn-lg btn-block">Calculate</button>
+                    <button className="btn btn-success btn-lg btn-block">
+                        Calculate
+                    </button>
                 </div>
             </div>
         )
