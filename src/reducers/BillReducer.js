@@ -10,17 +10,22 @@ const initialState = {
 
 const bill = (state = initialState, action = {}) => {
     switch (action.type) {
-        case types.GET_BILL_FORM:
-            return {
-                ...state,
-                custNum: action.custNum,
-                coupons: action.coupons
-            }
-            break
         case types.GET_CUST_NUM:
             return {
                 ...state,
                 custNum: action.custNum
+            }
+            break
+        case types.ADD_BILL_COUPON:
+            return {
+                ...state,
+                coupons: state.coupons.concat([action.coupon])
+            }
+            break
+        case types.REMOVE_BILL_COUPON:
+            return {
+                ...state,
+                coupons: state.coupons.filter((coupon, index) => index !== action.index)
             }
             break
         default:

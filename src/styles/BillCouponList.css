@@ -1,0 +1,9 @@
+.bill-coupon-list {
+    margin: 10px 0 20px 0;
+}
+
+.bill-coupon-list .badge {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 1em;
+}

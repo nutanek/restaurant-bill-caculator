@@ -4,7 +4,13 @@ import BillForm from './BillForm'
 import './../styles/Bill.css'
 
 const Bill = (props) => {
-    const { Bill, getCustNum } = props
+    const { 
+        Bill, 
+        getCustNum, 
+        addCoupon,
+        removeCoupon
+    } = props
+
     return (
         <PageLayout>
             <div className="row justify-content-center">
@@ -15,6 +21,8 @@ const Bill = (props) => {
                             custNum={Bill.custNum}
                             coupons={Bill.coupons}
                             getCustNum={getCustNum}
+                            addCoupon={addCoupon}
+                            removeCoupon={removeCoupon}
                         />
                     </div>
                 </div>
