@@ -4,8 +4,7 @@ const initialState = {
     custNum: 1,
     coupons: [],
     subtotal: 0,
-    total: 0,
-    description: ""
+    total: 0
 }
 
 const bill = (state = initialState, action = {}) => {
@@ -15,22 +14,18 @@ const bill = (state = initialState, action = {}) => {
                 ...state,
                 custNum: action.custNum
             }
-            break
         case types.ADD_BILL_COUPON:
             return {
                 ...state,
                 coupons: state.coupons.concat([action.coupon])
             }
-            break
         case types.REMOVE_BILL_COUPON:
             return {
                 ...state,
                 coupons: state.coupons.filter((coupon, index) => index !== action.index)
             }
-            break
         default:
             return state
-            break
     }
 }
 
