@@ -1,6 +1,7 @@
 import React from 'react'
 import PageLayout from './../layouts/PageLayout'
 import BillForm from './BillForm'
+import BillPaper from './BillPaper'
 
 const Bill = (props) => {
     const { 
@@ -18,6 +19,9 @@ const Bill = (props) => {
                 getCustNum={getCustNum}
                 addCoupon={addCoupon}
                 removeCoupon={removeCoupon}
+            />
+            <BillPaper 
+                custNum={Bill.custNum}
             />
         </PageLayout>
     )

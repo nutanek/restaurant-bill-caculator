@@ -1,0 +1,26 @@
+.bill-paper .table {
+    border-top: 3px dashed #e8e8e8;
+    font-size: 1.2em;
+}
+
+.bill-paper .table td {
+    border: 0;
+}
+
+.bill-paper .table tr td:nth-child(1) {
+    font-weight: bold;
+}
+
+.bill-paper .table .under {
+    border-bottom: 2px solid #e8e8e8;
+}
+
+.bill-paper .table tr td:nth-child(2) {
+    text-align: right;
+}
+
+.bill-paper .table .total {
+    display: block;
+    margin-bottom: -25px;
+    font-size: 2.2em;
+}
