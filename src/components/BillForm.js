@@ -8,12 +8,12 @@ class BillForm extends Component {
         const { 
             custNum, 
             coupons, 
-            getCustNum, 
             addCoupon,
-            removeCoupon
+            removeCoupon,
+            setBillTotal
         } = this.props
 
-        let couponInput
+        let custNumInput, couponInput
 
         return (
             <BillLayout>
@@ -22,12 +22,11 @@ class BillForm extends Component {
                 </div>
 
                 <div className="form-group">
-                    <label>Total customers:</label>
+                    <label>Number of customers:</label>
                     <input 
                         type="number" 
                         className="form-control"
-                        value={custNum}
-                        onChange={(e)=>getCustNum(e.target.value)}
+                        ref={(node)=>{custNumInput=node}}
                     />
                 </div>
 
@@ -59,9 +58,7 @@ class BillForm extends Component {
                 <div className="form-group">
                     <button 
                         className="btn btn-success btn-lg btn-block"
-                        onClick={()=>{
-                            console.log(getTotalPrice(custNum, coupons))
-                        }}>
+                        onClick={()=>setBillTotal(custNumInput.value, coupons)}>
                         Calculate
                     </button>
                 </div>

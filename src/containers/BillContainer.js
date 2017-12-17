@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCustNum, addCoupon, removeCoupon } from './../actions/BillActions'
+import { getCustNum, addCoupon, removeCoupon, setBillTotal } from './../actions/BillActions'
 import Bill from './../components/Bill'
 
 const BillContainer = props => <Bill {...props} />;
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    getCustNum,
     addCoupon,
-    removeCoupon
+    removeCoupon,
+    setBillTotal
 })(BillContainer);

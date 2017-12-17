@@ -1,15 +1,6 @@
 import * as types from '../constants/ActionTypes'
-
-export const getBillForm = ({custNum, coupons}) => ({
-    type: types.GET_BILL_FORM,
-    custNum,
-    coupons
-})
-
-export const getCustNum = (custNum) => ({
-    type: types.GET_CUST_NUM,
-    custNum
-})
+import { BUFFET_PRICE } from '../constants/RestaurantConstants'
+import { getTotalPrice } from './../utils/BillUtils'
 
 export const addCoupon = (coupon) => ({
     type: types.ADD_BILL_COUPON,
@@ -20,3 +11,14 @@ export const removeCoupon = (index) => ({
     type: types.REMOVE_BILL_COUPON,
     index
 })
+
+export const setBillTotal = (custNum, coupons) => async (dispatch) => {
+    let subtotal = custNum * BUFFET_PRICE
+    let total = await getTotalPrice(custNum, coupons)
+    dispatch({
+        type: types.SET_BILL_TOTAL,
+        custNum: custNum || 0,
+        subtotal,
+        total
+    })
+}

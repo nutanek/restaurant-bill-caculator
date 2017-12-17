@@ -1,19 +1,15 @@
 import * as types from '../constants/ActionTypes'
 
 const initialState = {
-    custNum: 1,
+    custNum: 0,
     coupons: [],
     subtotal: 0,
-    total: 0
+    total: 0,
+    isDisplayBill: false
 }
 
 const bill = (state = initialState, action = {}) => {
     switch (action.type) {
-        case types.GET_CUST_NUM:
-            return {
-                ...state,
-                custNum: action.custNum
-            }
         case types.ADD_BILL_COUPON:
             return {
                 ...state,
@@ -23,6 +19,14 @@ const bill = (state = initialState, action = {}) => {
             return {
                 ...state,
                 coupons: state.coupons.filter((coupon, index) => index !== action.index)
+            }
+        case types.SET_BILL_TOTAL:
+            return {
+                ...state,
+                custNum: action.custNum,
+                subtotal: action.subtotal,
+                total: action.total,
+                isDisplayBill: true
             }
         default:
             return state

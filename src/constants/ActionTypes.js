@@ -1,4 +1,3 @@
-export const GET_BILL_FORM = 'GET_CUST_FORM'
-export const GET_CUST_NUM = 'GET_CUST_NUM'
 export const ADD_BILL_COUPON = 'ADD_BILL_COUPON'
 export const REMOVE_BILL_COUPON = 'REMOVE_BILL_COUPON'
+export const SET_BILL_TOTAL = 'SET_BILL_TOTAL'

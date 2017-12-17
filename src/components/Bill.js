@@ -6,9 +6,9 @@ import BillPaper from './BillPaper'
 const Bill = (props) => {
     const { 
         Bill, 
-        getCustNum, 
         addCoupon,
-        removeCoupon
+        removeCoupon,
+        setBillTotal
     } = props
 
     return (
@@ -16,12 +16,15 @@ const Bill = (props) => {
             <BillForm
                 custNum={Bill.custNum}
                 coupons={Bill.coupons}
-                getCustNum={getCustNum}
                 addCoupon={addCoupon}
                 removeCoupon={removeCoupon}
+                setBillTotal={setBillTotal}
             />
             <BillPaper 
                 custNum={Bill.custNum}
+                subtotal={Bill.subtotal}
+                total={Bill.total}
+                isDisplayBill={Bill.isDisplayBill}
             />
         </PageLayout>
     )

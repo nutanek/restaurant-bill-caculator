@@ -10,48 +10,58 @@ class BillPaper extends Component {
 
     render() {
         const {
-            custNum
+            custNum,
+            subtotal,
+            total,
+            isDisplayBill
         } = this.props
 
-        return (
-            <BillLayout>
-                <div className="bill-paper">
-                    <div className="row header justify-content-center">
-                        THANK YOU
+        if (isDisplayBill) {
+            return (
+                <BillLayout>
+                    <div className="bill-paper">
+                        <div className="row header justify-content-center">
+                            THANK YOU
+                        </div>
+                        <table className="table">
+                            <tbody>
+                                <tr>
+                                    <td>STATUS</td>
+                                    <td className="text-warning">Pending</td>
+                                </tr>
+                                <tr>
+                                    <td>DATE</td>
+                                    <td>{this.getCurrentTime()}</td>
+                                </tr>
+                                <tr className="under">
+                                    <td>SEAT(s)</td>
+                                    <td>{custNum}</td>
+                                </tr>
+                                <tr>
+                                    <td>SUBTOTAL</td>
+                                    <td>฿{subtotal.toFixed(2)}</td>
+                                </tr>
+                                <tr className="under">
+                                    <td>DISCOUNT</td>
+                                    <td className="text-danger">
+                                        -฿{(subtotal - total).toFixed(2)}
+                                    </td>
+                                </tr>
+                                <tr className="text-center">
+                                    <td colSpan="2">
+                                        <span>TOTAL</span>
+                                        <span className="total text-success">
+                                            ฿{total.toFixed(2)}
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <table className="table">
-                        <tbody>
-                            <tr>
-                                <td>STATUS</td>
-                                <td className="text-warning">Pending</td>
-                            </tr>
-                            <tr>
-                                <td>DATE</td>
-                                <td>{this.getCurrentTime()}</td>
-                            </tr>
-                            <tr className="under">
-                                <td>SEAT(s)</td>
-                                <td>{custNum}</td>
-                            </tr>
-                            <tr>
-                                <td>SUBTOTAL</td>
-                                <td>100</td>
-                            </tr>
-                            <tr className="under">
-                                <td>DISCOUNT</td>
-                                <td className="text-danger">-฿20.50</td>
-                            </tr>
-                            <tr className="text-center">
-                                <td colspan="2">
-                                    <span>TOTAL</span>
-                                    <span className="total">฿459</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </BillLayout>
-        )
+                </BillLayout>
+            )
+        }
+        return null
     }
 }
 
