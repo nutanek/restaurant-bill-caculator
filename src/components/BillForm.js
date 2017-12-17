@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CouponList from './BillCouponList'
 
+import { getTotalPrice } from './../utils/BillUtils'
+
 class BillForm extends Component {
     render() {
         const { 
@@ -51,7 +53,11 @@ class BillForm extends Component {
                 </div>
 
                 <div className="form-group">
-                    <button className="btn btn-success btn-lg btn-block">
+                    <button 
+                        className="btn btn-success btn-lg btn-block"
+                        onClick={()=>{
+                            console.log(getTotalPrice(custNum, coupons))
+                        }}>
                         Calculate
                     </button>
                 </div>
