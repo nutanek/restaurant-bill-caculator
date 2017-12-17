@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CouponList from './BillCouponList'
-
+import BillLayout from './../layouts/BillLayout'
 import { getTotalPrice } from './../utils/BillUtils'
 
 class BillForm extends Component {
@@ -16,7 +16,11 @@ class BillForm extends Component {
         let couponInput
 
         return (
-            <div>
+            <BillLayout>
+                <div className="row header justify-content-center">
+                    BILL CALCULATOR
+                </div>
+
                 <div className="form-group">
                     <label>Total customers:</label>
                     <input 
@@ -61,7 +65,7 @@ class BillForm extends Component {
                         Calculate
                     </button>
                 </div>
-            </div>
+            </BillLayout>
         )
     }
 }

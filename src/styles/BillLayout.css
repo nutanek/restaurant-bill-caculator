@@ -1,8 +1,8 @@
-.bill {
-    margin: 0 10px;
+.bill-layout {
+    margin: 0 10px 30px;
 }
 
-.bill .header {
+.bill-layout .header {
     padding-bottom: 15px;
     font-size: 2em;
     font-weight: 500;
