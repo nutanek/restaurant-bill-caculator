@@ -21,7 +21,7 @@ const getLeastPromotionCoupon = async (custNum, coupons) => {
     ))
     const result = couponsInfo
                     .filter((coupon) => coupon.json.length !== 0)
-                    .map((coupon) => calCouponTotal(custNum, coupon.json[0]))
+                    .map((coupon) => calCouponTotal(custNum, coupon.json))
     return result.length > 0 ? Math.min(...result) : -1
 }
 

@@ -1,8 +1,8 @@
 import * as types from '../constants/ActionTypes'
 
-export const addCoupon = (coupon) => ({
+export const addCoupon = (info) => ({
     type: types.ADD_COUPON,
-    coupon
+    info
 })
 
 export const removeCoupon = (index) => ({
@@ -10,8 +10,7 @@ export const removeCoupon = (index) => ({
     index
 })
 
-export const updateCoupon = (index, info) => ({
+export const updateCoupon = (info) => ({
     type: types.UPDATE_COUPON,
-    index,
     info
 })
