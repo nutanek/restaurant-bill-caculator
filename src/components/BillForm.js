@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import CouponList from './BillCouponList'
 import BillLayout from './../layouts/BillLayout'
-import { getTotalPrice } from './../utils/BillUtils'
 
 class BillForm extends Component {
     render() {
         const { 
-            custNum, 
             coupons, 
             addCoupon,
             removeCoupon,
@@ -65,6 +64,13 @@ class BillForm extends Component {
             </BillLayout>
         )
     }
+}
+
+BillForm.propTypes = {
+    coupons: PropTypes.array.isRequired, 
+    addCoupon: PropTypes.func.isRequired,
+    removeCoupon: PropTypes.func.isRequired,
+    setBillTotal: PropTypes.func.isRequired
 }
 
 export default BillForm

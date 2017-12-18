@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import BillLayout from './../layouts/BillLayout'
 import './../styles/BillPaper.css'
 
@@ -63,6 +64,13 @@ class BillPaper extends Component {
         }
         return null
     }
+}
+
+BillPaper.propTypes = {
+    custNum: PropTypes.number.isRequired,
+    subtotal: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired,
+    isDisplayBill: PropTypes.bool.isRequired
 }
 
 export default BillPaper

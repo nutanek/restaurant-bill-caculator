@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import PageLayout from './../layouts/PageLayout'
 import BillForm from './BillForm'
 import BillPaper from './BillPaper'
@@ -14,7 +15,6 @@ const Bill = (props) => {
     return (
         <PageLayout>
             <BillForm
-                custNum={Bill.custNum}
                 coupons={Bill.coupons}
                 addCoupon={addCoupon}
                 removeCoupon={removeCoupon}
@@ -28,6 +28,13 @@ const Bill = (props) => {
             />
         </PageLayout>
     )
+}
+
+Bill.propTypes = {
+    Bill: PropTypes.object.isRequired,
+    addCoupon: PropTypes.func.isRequired,
+    removeCoupon: PropTypes.func.isRequired,
+    setBillTotal: PropTypes.func.isRequired
 }
 
 export default Bill

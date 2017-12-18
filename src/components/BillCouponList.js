@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './../styles/BillCouponList.css'
 
 const BillCouponList = (props) => {
@@ -15,6 +16,10 @@ const BillCouponList = (props) => {
                 }
         </div>
     )
+}
+
+BillCouponList.propTypes = {
+    coupons: PropTypes.array.isRequired
 }
 
 export default BillCouponList
