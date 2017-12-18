@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import BillLayout from './../layouts/BillLayout'
+import CardLayout from './../layouts/CardLayout'
 import './../styles/BillPaper.css'
 
 class BillPaper extends Component {
@@ -19,7 +19,7 @@ class BillPaper extends Component {
 
         if (isDisplayBill) {
             return (
-                <BillLayout>
+                <CardLayout size="5">
                     <div className="bill-paper">
                         <div className="row header justify-content-center">
                             THANK YOU
@@ -59,7 +59,7 @@ class BillPaper extends Component {
                             </tbody>
                         </table>
                     </div>
-                </BillLayout>
+                </CardLayout>
             )
         }
         return null

@@ -1,9 +1,9 @@
 import React from 'react'
-import './../styles/BillLayout.css'
+import './../styles/CardLayout.css'
 
-const BillLayout = (props) => (
+const CardLayout = (props) => (
     <div className="row justify-content-center">
-        <div className="card col-lg-5 col-md-10 bill-layout">
+        <div className={`card col-lg-${props.size} col-md-10 card-layout`}>
             <div className="card-body">
                 {props.children}
             </div>
@@ -11,4 +11,4 @@ const BillLayout = (props) => (
     </div>
 )
 
-export default BillLayout
+export default CardLayout

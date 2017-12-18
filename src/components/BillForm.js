@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CouponList from './BillCouponList'
-import BillLayout from './../layouts/BillLayout'
+import CardLayout from './../layouts/CardLayout'
 
 class BillForm extends Component {
     render() {
@@ -15,7 +15,7 @@ class BillForm extends Component {
         let custNumInput, couponInput
 
         return (
-            <BillLayout>
+            <CardLayout size="5">
                 <div className="row header justify-content-center">
                     BILL CALCULATOR
                 </div>
@@ -61,7 +61,7 @@ class BillForm extends Component {
                         Calculate
                     </button>
                 </div>
-            </BillLayout>
+            </CardLayout>
         )
     }
 }

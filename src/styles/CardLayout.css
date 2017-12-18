@@ -1,8 +1,8 @@
-.bill-layout {
+.card-layout {
     margin: 0 10px 30px;
 }
 
-.bill-layout .header {
+.card-layout .header {
     padding-bottom: 15px;
     font-size: 2em;
     font-weight: 500;
