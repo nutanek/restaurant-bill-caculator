@@ -7,8 +7,8 @@ import BillPaper from './BillPaper'
 const Bill = (props) => {
     const { 
         Bill, 
-        addCoupon,
-        removeCoupon,
+        addBillCoupon,
+        removeBillCoupon,
         setBillTotal
     } = props
 
@@ -16,8 +16,8 @@ const Bill = (props) => {
         <PageLayout>
             <BillForm
                 coupons={Bill.coupons}
-                addCoupon={addCoupon}
-                removeCoupon={removeCoupon}
+                addBillCoupon={addBillCoupon}
+                removeBillCoupon={removeBillCoupon}
                 setBillTotal={setBillTotal}
             />
             <BillPaper 
@@ -32,8 +32,8 @@ const Bill = (props) => {
 
 Bill.propTypes = {
     Bill: PropTypes.object.isRequired,
-    addCoupon: PropTypes.func.isRequired,
-    removeCoupon: PropTypes.func.isRequired,
+    addBillCoupon: PropTypes.func.isRequired,
+    removeBillCoupon: PropTypes.func.isRequired,
     setBillTotal: PropTypes.func.isRequired
 }
 

@@ -10,7 +10,7 @@ const BillCouponList = (props) => {
                         <span 
                             key={key} 
                             className="badge badge-primary"
-                            onClick={()=>props.removeCoupon(key)}>{coupon} x
+                            onClick={()=>props.removeBillCoupon(key)}>{coupon} x
                         </span>
                     )
                 }
@@ -19,7 +19,8 @@ const BillCouponList = (props) => {
 }
 
 BillCouponList.propTypes = {
-    coupons: PropTypes.array.isRequired
+    coupons: PropTypes.array.isRequired,
+    removeBillCoupon: PropTypes.func.isRequired
 }
 
 export default BillCouponList

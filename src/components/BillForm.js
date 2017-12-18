@@ -7,8 +7,8 @@ class BillForm extends Component {
     render() {
         const { 
             coupons, 
-            addCoupon,
-            removeCoupon,
+            addBillCoupon,
+            removeBillCoupon,
             setBillTotal
         } = this.props
 
@@ -42,7 +42,7 @@ class BillForm extends Component {
                                 className="btn btn-secondary" 
                                 type="button"
                                 onClick={()=>{
-                                    couponInput.value !== '' && addCoupon(couponInput.value)
+                                    couponInput.value !== '' && addBillCoupon(couponInput.value)
                                     couponInput.value = ''
                                 }}>ADD
                             </button>
@@ -50,7 +50,7 @@ class BillForm extends Component {
                     </div>
                     <CouponList 
                         coupons={coupons} 
-                        removeCoupon={removeCoupon}
+                        removeBillCoupon={removeBillCoupon}
                     />
                 </div>
 
@@ -68,8 +68,8 @@ class BillForm extends Component {
 
 BillForm.propTypes = {
     coupons: PropTypes.array.isRequired, 
-    addCoupon: PropTypes.func.isRequired,
-    removeCoupon: PropTypes.func.isRequired,
+    addBillCoupon: PropTypes.func.isRequired,
+    removeBillCoupon: PropTypes.func.isRequired,
     setBillTotal: PropTypes.func.isRequired
 }
 
