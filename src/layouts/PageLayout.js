@@ -7,9 +7,9 @@ const PageLayout = (props) => (
         <div className="row header">
             <div className="col-md-6 text-center text-md-left logo">sss</div>
             <div className="col-md-6 navs text-center text-md-right">
-                <Link to='/'><button className="btn btn-success">Bill Calculator</button></Link>
-                <Link to='/'><button className="btn btn-warning">Coupons</button></Link>
-                <Link to='/'><button className="btn btn-danger">Reservation</button></Link>
+                <Link to='/bill'><button className="btn btn-success">Bill Calculator</button></Link>
+                <Link to='/coupon'><button className="btn btn-warning">Coupons</button></Link>
+                <Link to='/reservation'><button className="btn btn-danger">Reservation</button></Link>
             </div>
         </div>
         <div className="row content justify-content-center">

@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/App.css'
 
 import BillPage from './containers/BillContainer'
+import CouponPage from './containers/CouponContainer'
 
 class App extends Component {
   render() {
@@ -13,7 +14,8 @@ class App extends Component {
       <Provider store={configStore()}>
         <BrowserRouter>
           <div>
-            <Route exact path='/' component={BillPage} />
+            <Route path='/bill' component={BillPage} />
+            <Route exact path='/coupon' component={CouponPage} />
           </div>
         </BrowserRouter>
       </Provider>
