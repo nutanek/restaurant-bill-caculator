@@ -57,3 +57,8 @@ export const addCouponToDB = async (info) => {
 
     return json ? jsonRequest : null
 }
+
+export const fetchCouponFormDB = async (info) => {
+    const { json } = await callApi(COUPON_API)
+    return json || null    
+}

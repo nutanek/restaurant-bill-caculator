@@ -12,6 +12,11 @@ const initialState = {
 
 const Coupon = (state = initialState, action = {}) => {
     switch (action.type) {
+        case types.FETCH_COUPONS_SUCCESS:
+            return {
+                ...state,
+                coupons: action.coupons
+            }
         case types.ADD_COUPON_START:
             return {
                 ...state,

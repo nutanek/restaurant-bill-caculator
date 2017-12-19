@@ -1,26 +1,37 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PageLayout from './../layouts/PageLayout'
 import CouponForm from './CouponForm'
+import CouponList from './CouponList'
 
-const Coupon = (props) => {
-    let {
-        Coupon,
-        addCoupon,
-        updateCoupon
-    } = props
+class Coupon extends Component {
+    componentWillMount() {
+        const { fetchCoupon } = this.props
+        fetchCoupon()
+    }
 
-    return (
-        <PageLayout>
-            <CouponForm
-                onSubmit={addCoupon}
-                isStartAdd={Coupon.isStartAdd}
-                isSuccessAdd={Coupon.isSuccessAdd}                
-                isFailureAdd={Coupon.isFailureAdd}
-                updateCoupon={updateCoupon}
-            />
-        </PageLayout>
-    )
+    render() {
+        let {
+            Coupon,
+            addCoupon,
+            updateCoupon
+        } = this.props
+    
+        return (
+            <PageLayout>
+                <CouponForm
+                    onSubmit={addCoupon}
+                    isStartAdd={Coupon.isStartAdd}
+                    isSuccessAdd={Coupon.isSuccessAdd}                
+                    isFailureAdd={Coupon.isFailureAdd}
+                    updateCoupon={updateCoupon}
+                />
+                <CouponList
+                    couponList={Coupon.coupons}
+                />
+            </PageLayout>
+        )
+    }
 }
 
 Coupon.propTypes = {

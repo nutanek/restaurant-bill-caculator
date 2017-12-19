@@ -1,11 +1,18 @@
 import * as types from '../constants/ActionTypes'
-import { addCouponToDB } from './../utils/CouponUtils'
+import { addCouponToDB, fetchCouponFormDB } from './../utils/CouponUtils'
+
+export const fetchCoupon = () => async (dispatch) => {
+    const coupons = await fetchCouponFormDB()
+    if (coupons) {
+        dispatch({ type: types.FETCH_COUPONS_SUCCESS, coupons }) 
+    }
+}
 
 export const addCoupon = (info) => async (dispatch) => {
-    const json = await addCouponToDB(info)
+    const coupon = await addCouponToDB(info)
     dispatch({ type: types.ADD_COUPON_START })
-    if (json) {
-        dispatch({ type: types.ADD_COUPON_SUCCESS , info })
+    if (coupon) {
+        dispatch({ type: types.ADD_COUPON_SUCCESS , info: coupon })
     } else {
         dispatch({ type: types.ADD_COUPON_FAILURE })
     }

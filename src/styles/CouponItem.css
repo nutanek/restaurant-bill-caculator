@@ -1,0 +1,9 @@
+.coupon-item button {
+    margin-left: 5px;
+}
+
+.coupon-item .code {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #16a085;
+}
