@@ -4,6 +4,7 @@ import CardLayout from './../layouts/CardLayout'
 import { COUPONS_TYPE } from './../constants/RestaurantConstants'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
+import TransactionAlert from './TransactionAlert'
 
 class CouponForm extends Component {
     constructor() {
@@ -18,12 +19,25 @@ class CouponForm extends Component {
 
     render() {
         let { currentCouponType } = this.state
+        let {
+            isStartAdd,
+            isSuccessAdd,
+            isFailureAdd
+        } = this.props
+
         return (
             <CardLayout size="6">
                 <form onSubmit={this.props.handleSubmit}>
                     <div className="row header justify-content-center">
                         COUPON MANAGER
                     </div>
+
+                    <TransactionAlert 
+                        isLoading={isStartAdd}
+                        isSuccess={isSuccessAdd}
+                        isFailure={isFailureAdd}
+                        topic="Adding coupon"
+                    />
 
                     <div className="form-group">
                         <label>Coupon Code:</label>

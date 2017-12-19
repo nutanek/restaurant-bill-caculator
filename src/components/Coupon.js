@@ -5,14 +5,18 @@ import CouponForm from './CouponForm'
 
 const Coupon = (props) => {
     let {
+        Coupon,
         addCoupon,
         updateCoupon
     } = props
 
     return (
         <PageLayout>
-            <CouponForm 
+            <CouponForm
                 onSubmit={addCoupon}
+                isStartAdd={Coupon.isStartAdd}
+                isSuccessAdd={Coupon.isSuccessAdd}                
+                isFailureAdd={Coupon.isFailureAdd}
                 updateCoupon={updateCoupon}
             />
         </PageLayout>
