@@ -5,7 +5,8 @@ import CouponItem from './CouponItem'
 
 const CouponList = (props) => {
     let {
-        couponList
+        couponList,
+        editCoupon
     } = props
 
     return (
@@ -22,14 +23,17 @@ const CouponList = (props) => {
                         <th></th>
                     </tr>
                 </thead>
+                {
+                    console.log(props.couponList2)
+                }
                 <tbody>
                 {
                     couponList.map((coupon, key) => 
                         <CouponItem
                             key={key}
-                            code={coupon.id}
-                            type={coupon.type} 
-                            options={coupon.options} 
+                            index={key}                            
+                            info={coupon}
+                            editCoupon={editCoupon}
                         />
                     )
                 }

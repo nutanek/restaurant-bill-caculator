@@ -14,20 +14,26 @@ class Coupon extends Component {
         let {
             Coupon,
             addCoupon,
-            updateCoupon
+            editCoupon,
+            updateCoupon,
+            handleSubmitCoupon
         } = this.props
+
+        const handleSubmit = Coupon.isEditMode ? updateCoupon : addCoupon
     
         return (
             <PageLayout>
                 <CouponForm
-                    onSubmit={addCoupon}
+                    onSubmit={handleSubmit}                    
+                    info={Coupon.info}
+                    isEditMode={Coupon.isEditMode}
                     isStartAdd={Coupon.isStartAdd}
                     isSuccessAdd={Coupon.isSuccessAdd}                
                     isFailureAdd={Coupon.isFailureAdd}
-                    updateCoupon={updateCoupon}
                 />
                 <CouponList
                     couponList={Coupon.coupons}
+                    editCoupon={editCoupon}
                 />
             </PageLayout>
         )

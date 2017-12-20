@@ -1,5 +1,10 @@
 import * as types from '../constants/ActionTypes'
-import { addCouponToDB, fetchCouponFormDB } from './../utils/CouponUtils'
+import { 
+    addCouponToDB, 
+    fetchCouponFormDB, 
+    updateCouponToDB,
+    convertCouponToForm
+} from './../utils/CouponUtils'
 
 export const fetchCoupon = () => async (dispatch) => {
     const coupons = await fetchCouponFormDB()
@@ -18,12 +23,23 @@ export const addCoupon = (info) => async (dispatch) => {
     }
 }
 
-export const removeCoupon = (index) => ({
-    type: types.REMOVE_COUPON,
+export const editCoupon = (index, info) => ({
+    type: types.EDIT_COUPON,
+    info: convertCouponToForm(info),
     index
 })
 
-export const updateCoupon = (info) => ({
-    type: types.UPDATE_COUPON,
-    info
+export const updateCoupon = (info) => async (dispatch) => {
+    const coupon = await updateCouponToDB(info.couponCode, info)
+    dispatch({ type: types.UPDATE_COUPON_START })
+    if (coupon) {
+        dispatch({ type: types.UPDATE_COUPON_SUCCESS , info: coupon })
+    } else {
+        dispatch({ type: types.UPDATE_COUPON_FAILURE })
+    }
+}
+
+export const removeCoupon = (index) => ({
+    type: types.REMOVE_COUPON,
+    index
 })

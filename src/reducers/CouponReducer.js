@@ -1,12 +1,13 @@
 import * as types from '../constants/ActionTypes'
 
 const initialState = {
+    isEditMode: false,
+    currentEditIndex: 0,
     coupons: [],
     isStartAdd: false,
     isSuccessAdd: false,    
     isFailureAdd: false,
     info: {
-        couponCode: "4PAY3",
     }
 }
 
@@ -15,7 +16,7 @@ const Coupon = (state = initialState, action = {}) => {
         case types.FETCH_COUPONS_SUCCESS:
             return {
                 ...state,
-                coupons: action.coupons
+                coupons: action.coupons,
             }
         case types.ADD_COUPON_START:
             return {
@@ -28,7 +29,8 @@ const Coupon = (state = initialState, action = {}) => {
                 coupons: state.coupons.concat([action.info]),
                 isSuccessAdd: true,
                 isFailureAdd: false,
-                isStartAdd: false
+                isStartAdd: false,
+                info: {}
             }
         case types.ADD_COUPON_FAILURE:
             return {
@@ -37,10 +39,28 @@ const Coupon = (state = initialState, action = {}) => {
                 isSuccessAdd: false,
                 isStartAdd: false
             }
-        case types.UPDATE_COUPON:
+        case types.EDIT_COUPON:
+            return {
+                ...state,
+                info: action.info,
+                currentEditIndex: action.index,
+                isEditMode: true
+            }
+        case types.UPDATE_COUPON_START:
             return {
                 ...state,
                 info: action.info
+            }
+        case types.UPDATE_COUPON_SUCCESS:
+            return {
+                ...state,
+                isEditMode: false,
+                coupons: [
+                    ...state.coupons.slice(0, state.currentEditIndex),
+                    action.info,
+                    ...state.coupons.slice(state.currentEditIndex + 1)
+                ],
+                info: {}
             }
         default:
             return state

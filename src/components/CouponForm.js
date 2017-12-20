@@ -9,7 +9,7 @@ import TransactionAlert from './TransactionAlert'
 class CouponForm extends Component {
     constructor() {
         super()
-        this.state = { currentCouponType: 1 }
+        this.state = { currentCouponType: 1 }  
     }
 
     onChangeCouponType(e) {
@@ -17,17 +17,28 @@ class CouponForm extends Component {
         this.setState({ currentCouponType: type })
     }
 
+    componentWillReceiveProps(nextProps) {
+        if ( nextProps.initialValues && this.props.initialValues &&
+            nextProps.initialValues.couponType !== this.props.initialValues.couponType) {
+            this.setState({ currentCouponType: nextProps.initialValues.couponType })
+        }
+    }
+
     render() {
         let { currentCouponType } = this.state
         let {
+            handleSubmit,
+            isEditMode,
             isStartAdd,
             isSuccessAdd,
-            isFailureAdd
+            isFailureAdd,
+            updateCoupon,
+            addCoupon
         } = this.props
 
         return (
             <CardLayout size="6">
-                <form onSubmit={this.props.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="row header justify-content-center">
                         COUPON MANAGER
                     </div>
@@ -46,6 +57,7 @@ class CouponForm extends Component {
                             component="input" 
                             type="text" 
                             className="form-control"
+                            readOnly={isEditMode && true}
                         />
                     </div>
 
@@ -138,9 +150,26 @@ class CouponForm extends Component {
                     }
                     
                     <div className="form-group">
-                        <button className="btn btn-success btn-lg btn-block">
-                            CREATE
-                        </button>
+                        {
+                            isEditMode ? (
+                                <div className="row">
+                                    <div className="col-8">
+                                        <button className="btn btn-success btn-lg btn-block">
+                                            SAVE CHANGES
+                                        </button>
+                                    </div>
+                                    <div className="col-4">
+                                        <button className="btn btn-secondary btn-lg btn-block">
+                                            CANCEL
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <button className="btn btn-primary btn-lg btn-block">
+                                    CREATE
+                                </button>
+                            )
+                        }    
                     </div>
                 </form>
             </CardLayout>

@@ -5,46 +5,51 @@ import './../styles/CouponItem.css'
 
 const CouponList = (props) => {
     let {
-        code,
-        type,
-        options
+        index,
+        info,
+        editCoupon
     } = props
 
     return (
         <tr className="coupon-item">
-            <td className="code">{code}</td>
-            <td>{COUPONS_TYPE[type-1].name}</td>
+            <td className="code">{info.id}</td>
+            <td>{COUPONS_TYPE[info.type-1].name}</td>
             <td>
             {
-                ~[1,2].indexOf(type) ? 
+                ~[1,2].indexOf(info.type) ? 
                 (
                     <div>
-                        <p><b>Cust min:</b> {options.custStart}</p>
                         <p>
-                            <b>Cust max: </b> 
-                            {
-                                options.custEnd === -1 
-                                    ? 'infinity'
-                                    : options.custEnd
-                            }
+                            <b>Customers: </b> 
+                            { formatNumberCustomer(info.options.custStart, info.options.custEnd) }
                         </p>
                         <p>
-                            <b>Discount:</b> {options.discountPercent}
-                            { type === 1 ? '%' : ' Baht' }
+                            <b>Discount: </b>
+                            { 
+                                info.type === 1 
+                                    ? `${info.options.discountPercent}%` 
+                                    : `${info.options.discountMoney} Baht`
+                            }
                         </p>
                     </div>
                 )
                 :
                 (
                     <div>
-                        <p><b>Come:</b> {options.come}</p>
-                        <p><b>Pay:</b> {options.pay}</p>
+                        <p><b>Come:</b> {info.options.come}</p>
+                        <p><b>Pay:</b> {info.options.pay}</p>
                     </div>
                 )
             }
             </td>
             <td className="text-right">
-                <button type="button" className="btn btn-sm btn-warning">
+                <button 
+                    type="button" 
+                    className="btn btn-sm btn-warning"
+                    onClick={()=>{
+                        editCoupon(index, info)
+                        window.scroll(0, 80)
+                    }}>
                     Edit
                 </button>
                 <button type="button" className="btn btn-sm btn-danger">
@@ -53,6 +58,11 @@ const CouponList = (props) => {
             </td>
         </tr>
     )   
+}
+
+const formatNumberCustomer = (min, max) => {
+    max = max < 0 ? 'infinity' : max
+    return max === min ? min : `${min} - ${max}`
 }
 
 export default CouponList
