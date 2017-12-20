@@ -20,7 +20,7 @@ class CouponForm extends Component {
     componentWillReceiveProps(nextProps) {
         if ( nextProps.initialValues && this.props.initialValues &&
             nextProps.initialValues.couponType !== this.props.initialValues.couponType) {
-            this.setState({ currentCouponType: nextProps.initialValues.couponType })
+            this.setState({ currentCouponType: nextProps.initialValues.couponType || 1 })
         }
     }
 
@@ -33,7 +33,8 @@ class CouponForm extends Component {
             isSuccessAdd,
             isFailureAdd,
             updateCoupon,
-            addCoupon
+            addCoupon,
+            cancelEditCoupon
         } = this.props
 
         return (
@@ -154,18 +155,24 @@ class CouponForm extends Component {
                             isEditMode ? (
                                 <div className="row">
                                     <div className="col-8">
-                                        <button className="btn btn-success btn-lg btn-block">
+                                        <button 
+                                            type="submit" 
+                                            className="btn btn-success btn-lg btn-block">
                                             SAVE CHANGES
                                         </button>
                                     </div>
                                     <div className="col-4">
-                                        <button className="btn btn-secondary btn-lg btn-block">
+                                        <button 
+                                            className="btn btn-secondary btn-lg btn-block"
+                                            onClick={()=>cancelEditCoupon()}>
                                             CANCEL
                                         </button>
                                     </div>
                                 </div>
                             ) : (
-                                <button className="btn btn-primary btn-lg btn-block">
+                                <button 
+                                    type="submit" 
+                                    className="btn btn-primary btn-lg btn-block">
                                     CREATE
                                 </button>
                             )

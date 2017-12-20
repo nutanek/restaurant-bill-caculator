@@ -23,9 +23,6 @@ const CouponList = (props) => {
                         <th></th>
                     </tr>
                 </thead>
-                {
-                    console.log(props.couponList2)
-                }
                 <tbody>
                 {
                     couponList.map((coupon, key) => 

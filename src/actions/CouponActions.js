@@ -29,6 +29,10 @@ export const editCoupon = (index, info) => ({
     index
 })
 
+export const cancelEditCoupon = () => ({
+    type: types.CANCEL_EDIT_COUPON
+})
+
 export const updateCoupon = (info) => async (dispatch) => {
     const coupon = await updateCouponToDB(info.couponCode, info)
     dispatch({ type: types.UPDATE_COUPON_START })

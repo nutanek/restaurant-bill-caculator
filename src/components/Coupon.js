@@ -15,6 +15,7 @@ class Coupon extends Component {
             Coupon,
             addCoupon,
             editCoupon,
+            cancelEditCoupon,
             updateCoupon,
             handleSubmitCoupon
         } = this.props
@@ -24,7 +25,8 @@ class Coupon extends Component {
         return (
             <PageLayout>
                 <CouponForm
-                    onSubmit={handleSubmit}                    
+                    onSubmit={handleSubmit}           
+                    cancelEditCoupon={cancelEditCoupon}         
                     info={Coupon.info}
                     isEditMode={Coupon.isEditMode}
                     isStartAdd={Coupon.isStartAdd}

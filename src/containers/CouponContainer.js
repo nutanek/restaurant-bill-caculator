@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchCoupon, addCoupon, removeCoupon, updateCoupon, editCoupon } from './../actions/CouponActions'
+import { fetchCoupon, addCoupon, removeCoupon, updateCoupon, editCoupon, cancelEditCoupon } from './../actions/CouponActions'
 import Coupon from './../components/Coupon'
 
 const CouponContainer = props => <Coupon {...props} />
@@ -17,5 +17,6 @@ export default connect(mapStateToProps, {
     addCoupon,
     removeCoupon,
     editCoupon,
-    updateCoupon
+    updateCoupon,
+    cancelEditCoupon
 })(CouponContainer)

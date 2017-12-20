@@ -7,8 +7,7 @@ const initialState = {
     isStartAdd: false,
     isSuccessAdd: false,    
     isFailureAdd: false,
-    info: {
-    }
+    info: {}
 }
 
 const Coupon = (state = initialState, action = {}) => {
@@ -46,10 +45,15 @@ const Coupon = (state = initialState, action = {}) => {
                 currentEditIndex: action.index,
                 isEditMode: true
             }
+        case types.CANCEL_EDIT_COUPON:
+            return {
+                ...state,
+                info: {},
+                isEditMode: false
+            }
         case types.UPDATE_COUPON_START:
             return {
                 ...state,
-                info: action.info
             }
         case types.UPDATE_COUPON_SUCCESS:
             return {
