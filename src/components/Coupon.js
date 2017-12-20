@@ -17,6 +17,7 @@ class Coupon extends Component {
             editCoupon,
             cancelEditCoupon,
             updateCoupon,
+            removeCoupon,
             handleSubmitCoupon
         } = this.props
 
@@ -36,6 +37,7 @@ class Coupon extends Component {
                 <CouponList
                     couponList={Coupon.coupons}
                     editCoupon={editCoupon}
+                    removeCoupon={removeCoupon}
                 />
             </PageLayout>
         )

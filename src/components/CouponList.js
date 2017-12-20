@@ -6,7 +6,8 @@ import CouponItem from './CouponItem'
 const CouponList = (props) => {
     let {
         couponList,
-        editCoupon
+        editCoupon,
+        removeCoupon
     } = props
 
     return (
@@ -31,6 +32,7 @@ const CouponList = (props) => {
                             index={key}                            
                             info={coupon}
                             editCoupon={editCoupon}
+                            removeCoupon={removeCoupon}
                         />
                     )
                 }

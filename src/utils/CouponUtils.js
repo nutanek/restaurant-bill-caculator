@@ -87,3 +87,14 @@ export const updateCouponToDB = async (code, info) => {
     })
     return json ? jsonRequest : null
 }
+
+export const removeCouponFromDB = async (code) => {
+    const { json } = await callApi(COUPON_INFO.replace(':code', code), {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }
+    })
+    return json || null
+}

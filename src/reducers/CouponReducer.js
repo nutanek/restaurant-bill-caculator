@@ -66,6 +66,11 @@ const Coupon = (state = initialState, action = {}) => {
                 ],
                 info: {}
             }
+        case types.REMOVE_COUPON:
+            return {
+                ...state,
+                coupons: state.coupons.filter((coupon, index) => index !== action.index)
+            }
         default:
             return state
     }

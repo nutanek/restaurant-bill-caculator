@@ -3,6 +3,7 @@ import {
     addCouponToDB, 
     fetchCouponFormDB, 
     updateCouponToDB,
+    removeCouponFromDB,
     convertCouponToForm
 } from './../utils/CouponUtils'
 
@@ -43,7 +44,12 @@ export const updateCoupon = (info) => async (dispatch) => {
     }
 }
 
-export const removeCoupon = (index) => ({
-    type: types.REMOVE_COUPON,
-    index
-})
+export const removeCoupon = (code, index) => async (dispatch) => {
+    const coupon = await removeCouponFromDB(code, index)
+    if (coupon) {
+        dispatch({ 
+            type: types.REMOVE_COUPON,
+            index
+        })   
+    }    
+}

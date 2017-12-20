@@ -7,8 +7,16 @@ const CouponList = (props) => {
     let {
         index,
         info,
-        editCoupon
+        editCoupon,
+        removeCoupon
     } = props
+
+    const remove = (code, index) => {
+        let r = window.confirm(`Are you sure to remove coupon ${code} ?`)
+        if (r) {
+            removeCoupon(code, index)
+        }
+    }
 
     return (
         <tr className="coupon-item">
@@ -52,7 +60,10 @@ const CouponList = (props) => {
                     }}>
                     Edit
                 </button>
-                <button type="button" className="btn btn-sm btn-danger">
+                <button 
+                    type="button" 
+                    className="btn btn-sm btn-danger"
+                    onClick={()=>remove(info.id, index)}>
                     Remove
                 </button>
             </td>
