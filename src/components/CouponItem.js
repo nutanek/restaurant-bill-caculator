@@ -22,7 +22,7 @@ const CouponList = (props) => {
         <tr className="coupon-item">
             <td className="code">{info.id}</td>
             <td>{COUPONS_TYPE[info.type-1].name}</td>
-            <td>
+            <td className="d-none d-md-block">
             {
                 ~[1,2].indexOf(info.type) ? 
                 (

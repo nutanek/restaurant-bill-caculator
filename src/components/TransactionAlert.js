@@ -1,34 +1,42 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import AlertContainer from 'react-alert'
 
-const TransactionAlert = (props) => {
-    let {
-        topic,
-        isLoading,
-        isSuccess,
-        isFailure
-    } = props
+class TransactionAlert extends React.Component {
+    alertOptions = {
+        offset: 14,
+        position: 'bottom right',
+        theme: 'light',
+        time: 5000,
+        transition: 'scale'
+    }
 
-    if (isLoading) {
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.isLoading && !nextProps.isLoading) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.props.isSuccess) {
+            this.msg.show(`Success, ${this.props.topic}`, {
+                time: 3000,
+                type: 'success'
+              })
+        } else {
+            this.msg.show(`Failure, ${this.props.topic}`, {
+                time: 3000,
+                type: 'error'
+            })
+        }
+    }
+
+    render() {
         return (
-            <div className="alert alert-primary" role="alert">
-                {topic} is processing..
-            </div>
+            <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
         )
-    } else if (isSuccess) {
-        return (
-            <div className="alert alert-success" role="alert">
-                Success, {topic}
-            </div>
-        )
-    } else if (isFailure) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                Failure, {topic}
-            </div>
-        )
-    } else {
-        return null
     }
 }
 

@@ -20,7 +20,7 @@ const CouponList = (props) => {
                     <tr>
                         <th>Coupon Code</th>
                         <th>Type</th>
-                        <th>Options</th>
+                        <th className="d-none d-md-block">Options</th>
                         <th></th>
                     </tr>
                 </thead>

@@ -7,6 +7,7 @@ import './styles/App.css'
 
 import BillPage from './containers/BillContainer'
 import CouponPage from './containers/CouponContainer'
+import ReservationPage from './containers/ReservationContainer'
 
 class App extends Component {
   render() {
@@ -14,8 +15,9 @@ class App extends Component {
       <Provider store={configStore()}>
         <BrowserRouter>
           <div>
-            <Route path='/bill' component={BillPage} />
-            <Route exact path='/coupon' component={CouponPage} />
+            <Route exact path='/bill' component={BillPage} />
+            <Route path='/coupon' component={CouponPage} />
+            <Route path='/reservation' component={ReservationPage} />
           </div>
         </BrowserRouter>
       </Provider>

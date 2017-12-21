@@ -10,5 +10,3 @@ export const callApi = (url, options) =>
             json => ({ json: json }),
             error => ({ error }))
         .catch(error => ({ error }))
-
-    
