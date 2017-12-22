@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CardLayout from './../layouts/CardLayout'
+import DateTimePicker from 'react-widgets/lib/DateTimePicker'
 import { Field, reduxForm } from 'redux-form'
 import { RESERVATION_TIMES } from './../constants/RestaurantConstants'
-import NumberPicker from 'react-widgets/lib/NumberPicker'
-import DateTimePicker from 'react-widgets/lib/DateTimePicker'
 import moment from 'moment'
 import momentLocaliser from 'react-widgets-moment'
 import 'react-widgets/dist/css/react-widgets.css'
@@ -22,6 +21,19 @@ const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
     />
 
 class ReservationForm extends Component {
+    constructor() {
+        super()
+        this.state = { custNum: [1] }
+    }
+
+    changZone(zone) {
+        this.setState({ 
+            custNum: zone === 'A' 
+                ? [1] 
+                : [1,2,3,4,5,6,7,8] 
+        })
+    }
+
     render() {
         let {
             handleSubmit
@@ -35,23 +47,29 @@ class ReservationForm extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label>Number of customer:</label>
-                        <Field 
-                            name="custNum" 
-                            component="input" 
-                            type="text" 
-                            className="form-control"
-                        />
-                    </div>
-
-                    <div className="form-group">
                         <label>Zone:</label>
                         <Field 
                             name="zone" 
                             component="select"
-                            className="form-control">
+                            className="form-control"
+                            onChange={(e)=>this.changZone(e.target.value)}>
                             <option value="A">A (Counter bar)</option>
                             <option value="B">B (Panty zone)</option>
+                        </Field>
+                    </div>
+
+                    <div className="form-group">
+                        <label>Number of customer:</label>
+                        <Field 
+                            name="custNum" 
+                            component="select"
+                            type="text" 
+                            className="form-control">
+                            {
+                                this.state.custNum.map((num) => 
+                                    <option key={num} value={num}>{num}</option>
+                                )
+                            }
                         </Field>
                     </div>
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { COUPONS_TYPE } from './../constants/RestaurantConstants'
 import './../styles/CouponItem.css'
 
-const CouponList = (props) => {
+const CouponItem = (props) => {
     let {
         index,
         info,
@@ -76,4 +76,11 @@ const formatNumberCustomer = (min, max) => {
     return max === min ? min : `${min} - ${max}`
 }
 
-export default CouponList
+CouponItem.propTypes = {
+    index: PropTypes.number.isRequired,
+    info: PropTypes.object.isRequired,
+    editCoupon: PropTypes.func.isRequired,
+    removeCoupon: PropTypes.func.isRequired
+}
+
+export default CouponItem

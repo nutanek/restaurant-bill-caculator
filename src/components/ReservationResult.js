@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 import CardLayout from './../layouts/CardLayout'
+import { RESERVATION_TIMES, SEATS_INFO } from './../constants/RestaurantConstants'
 import happyImg from './../images/happy.svg'
 import sadImg from './../images/sad.svg'
 import brokenImg from './../images/broken.svg'
@@ -18,10 +20,21 @@ class ReservationResult extends Component {
             return (
                 <ResultWrapper img={happyImg} type="success">
                     <p className="seat">
-                        {seatInfo.zone}{seatInfo.seatId}
+                        {seatInfo.zone}{seatInfo.seatId}&nbsp; 
+                        {
+                            seatInfo.zone === 'B' && (
+                                <span>
+                                    ({SEATS_INFO[seatInfo.zone][seatInfo.seatId-1].seat} seats)
+                                </span>
+                            )
+                        }
                     </p>
                     <p><b>Reservation ID:</b> {seatInfo.id}</p>
-                    <p><b>Date:</b> {seatInfo.date}</p>
+                    <p>
+                        <b>Date: </b> 
+                        { moment(seatInfo.date).format('DD/MM/YYYY') }&nbsp; 
+                        { RESERVATION_TIMES[seatInfo.timeSlot-1].time }
+                    </p>
                 </ResultWrapper>
             )
         } else if (isFailureReserve && description !== "") {

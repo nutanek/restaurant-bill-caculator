@@ -30,7 +30,7 @@ export const fetchReservation = async (options) => {
 }
 
 const findAvailableSeat = async ({ zone="A", custNum=1, date, timeSlot=1}) => {
-    date = moment(date).startOf('day').unix()
+    date = moment(date).startOf('day').unix() * 1000
     let reservationInfo = await fetchReservation(
         `?zone=${zone}&date=${date}&timeSlot=${timeSlot}&_sort=seatId`
     )
@@ -57,7 +57,7 @@ export const saveReservationToDB = async (formInfo) => {
     let seatInfo = await findAvailableSeat(formInfo)
     switch (seatInfo.status) {
         case 0:
-            let date = moment(formInfo.date).startOf('day').unix()
+            let date = moment(formInfo.date).startOf('day').unix() * 1000
             let reservationInfo = {
                 id: generateReservationId(),
                 zone: formInfo.zone || 'A',

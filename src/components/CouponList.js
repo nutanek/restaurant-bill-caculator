@@ -42,4 +42,10 @@ const CouponList = (props) => {
     )   
 }
 
+CouponList.propTypes = {
+    couponList: PropTypes.array.isRequired,
+    editCoupon: PropTypes.func.isRequired,
+    removeCoupon: PropTypes.func.isRequired
+}
+
 export default CouponList

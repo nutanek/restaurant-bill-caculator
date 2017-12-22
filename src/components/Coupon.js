@@ -17,8 +17,7 @@ class Coupon extends Component {
             editCoupon,
             cancelEditCoupon,
             updateCoupon,
-            removeCoupon,
-            handleSubmitCoupon
+            removeCoupon
         } = this.props
 
         const handleSubmit = Coupon.isEditMode ? updateCoupon : addCoupon
