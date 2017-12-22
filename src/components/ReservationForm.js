@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CardLayout from './../layouts/CardLayout'
-import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { RESERVATION_TIMES } from './../constants/RestaurantConstants'
 import NumberPicker from 'react-widgets/lib/NumberPicker'
@@ -13,14 +12,14 @@ import 'react-widgets/dist/css/react-widgets.css'
 momentLocaliser(moment)
 
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
-  <DateTimePicker
-    onChange={onChange}
-    min={new Date()}
-    format="DD/MM/YYYY"
-    placeholder="DD/MM/YYYY"
-    time={showTime}
-    value={!value ? null : new Date(value)}
-  />
+    <DateTimePicker
+        onChange={onChange}
+        min={new Date()}
+        format="DD/MM/YYYY"
+        placeholder="DD/MM/YYYY"
+        time={showTime}
+        value={!value ? null : new Date(value)}
+    />
 
 class ReservationForm extends Component {
     render() {
@@ -102,8 +101,8 @@ ReservationForm = reduxForm({
     enableReinitialize : true
 })(ReservationForm)
 
-// CouponForm = connect(
-//     (state => ({initialValues: state.Coupon.info}))
-// )(CouponForm)
+ReservationForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
+}
 
 export default ReservationForm

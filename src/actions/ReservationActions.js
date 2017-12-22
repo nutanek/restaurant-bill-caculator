@@ -11,6 +11,6 @@ export const reserveSeat = (info) => async (dispatch) => {
     } else if (status === 1) {
         dispatch({ type: types.RESERVE_SEAT_FAILURE, msg: msg })
     } else {
-        dispatch({ type: types.RESERVE_SEAT_SUCCESS, msg: ""})
+        dispatch({ type: types.RESERVE_SEAT_FAILURE, msg: ""})
     }
 }
