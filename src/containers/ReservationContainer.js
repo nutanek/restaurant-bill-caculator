@@ -8,7 +8,9 @@ const ReservationContainer = props => <Reservation {...props} />
 const mapStateToProps = (state) => {
     const { Reservation } = state
     return {
-        Reservation
+        isFailureReserve: Reservation.isFailureReserve,
+        seatInfo: Reservation.seatInfo,
+        description: Reservation.description
     }
 }
 

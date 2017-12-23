@@ -10,12 +10,12 @@ import 'react-widgets/dist/css/react-widgets.css'
 
 momentLocaliser(moment)
 
-const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
+const renderDateTimePicker = ({ input: { onChange, value }, showTime, placeholder }) =>
     <DateTimePicker
         onChange={onChange}
         min={new Date()}
         format="DD/MM/YYYY"
-        placeholder="DD/MM/YYYY"
+        placeholder={placeholder}
         time={showTime}
         value={!value ? null : new Date(value)}
     />
@@ -81,6 +81,7 @@ class ReservationForm extends Component {
                                 showTime={false}
                                 className="form-control"
                                 component={renderDateTimePicker}
+                                placeholder={moment(Date.now()).format('DD/MM/YYYY')}
                             />
                         </div>
                         <div className="form-group col-6">
@@ -115,8 +116,7 @@ class ReservationForm extends Component {
 }
 
 ReservationForm = reduxForm({
-    form: 'reservationForm',
-    enableReinitialize : true
+    form: 'reservationForm'
 })(ReservationForm)
 
 ReservationForm.propTypes = {

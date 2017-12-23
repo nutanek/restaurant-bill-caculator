@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes'
-import { saveReservationToDB }  from './../utils/ReservationUtils'
+import { saveReservationToDB, removeReservationFromDB }  from './../utils/ReservationUtils'
 
 export const reserveSeat = (info) => async (dispatch) => {
     let reservationInfo = await saveReservationToDB(info)
@@ -12,5 +12,15 @@ export const reserveSeat = (info) => async (dispatch) => {
         dispatch({ type: types.RESERVE_SEAT_FAILURE, msg: msg })
     } else {
         dispatch({ type: types.RESERVE_SEAT_FAILURE, msg: ""})
+    }
+}
+
+export const cancelReservation = (info) => async (dispatch) => {
+    let reservationInfo = await removeReservationFromDB(info)
+    dispatch({ type: types.CANCEL_SEAT_START })
+    if (reservationInfo) {
+        dispatch({ type: types.CANCEL_SEAT_SUCCESS })
+    } else {
+        dispatch({ type: types.CANCEL_SEAT_FAILURE })
     }
 }

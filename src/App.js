@@ -8,6 +8,7 @@ import './styles/App.css'
 import BillPage from './containers/BillContainer'
 import CouponPage from './containers/CouponContainer'
 import ReservationPage from './containers/ReservationContainer'
+import ReservationCancelPage from './containers/ReservationCancelContainer'
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path='/bill' component={BillPage} />
             <Route path='/coupon' component={CouponPage} />
             <Route path='/reservation' component={ReservationPage} />
+            <Route path='/reservation-cancel' component={ReservationCancelPage} />
           </div>
         </BrowserRouter>
       </Provider>

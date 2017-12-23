@@ -7,7 +7,9 @@ import ReservationResult from './ReservationResult'
 class Reservation extends Component {
     render() {
         let {
-            Reservation,
+            isFailureReserve,
+            seatInfo,
+            description,
             reserveSeat
         } = this.props
 
@@ -17,9 +19,9 @@ class Reservation extends Component {
                     onSubmit={reserveSeat}
                 />
                 <ReservationResult
-                    isFailureReserve={Reservation.isFailureReserve}
-                    seatInfo={Reservation.seatInfo}
-                    description={Reservation.description}
+                    isFailureReserve={isFailureReserve}
+                    seatInfo={seatInfo}
+                    description={description}
                 />
             </PageLayout>
         )
@@ -27,7 +29,8 @@ class Reservation extends Component {
 }
 
 Reservation.propTypes = {
-    Reservation: PropTypes.object.isRequired,
+    isFailureReserve: PropTypes.bool.isRequired,
+    description: PropTypes.string.isRequired,
     reserveSeat: PropTypes.func.isRequired
 }
 

@@ -85,3 +85,38 @@ export const saveReservationToDB = async (formInfo) => {
             return { status: 2, msg: "connection failed" }
     }
 }
+
+export const removeReservationFromDB = async (formInfo) => {
+    let {
+        cancelBy,
+        id,
+        seatID,
+        date,
+        timeSlot
+    } = formInfo
+
+    let options = ""
+    
+    if (!cancelBy || cancelBy === 'ID') {
+        options = id
+    } else {
+        let zone = seatID.charAt(0)
+        let seatId = parseInt(seatID.substr(1), 10)
+        date = moment(date).startOf('day').unix() * 1000
+        timeSlot = parseInt(timeSlot, 10) || 1
+
+        let reservationInfo = await fetchReservation(
+            `?zone=${zone}&seatId=${seatId}&date=${date}&timeSlot=${timeSlot}`
+        )
+        options = reservationInfo[0] ? reservationInfo[0].id : null
+    }
+
+    const { json } = await callApi(RESERVATION_INFO.replace(':options', options), {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }
+    })
+    return json || null
+}

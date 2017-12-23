@@ -4,7 +4,10 @@ const initialState = {
     seatInfo: null,
     isStartReserve: false,
     isFailureReserve: false,
-    description: ""
+    description: "",
+    isStartCancel: false,
+    isSuccessCancel: false,
+    isFailureCancel: false,
 }
 
 const Reservation = (state = initialState, action = {}) => {
@@ -30,6 +33,25 @@ const Reservation = (state = initialState, action = {}) => {
                 isFailureReserve: true,
                 isStartReserve: false,
                 description: action.msg
+            }
+        case types.CANCEL_SEAT_START:
+            return {
+                ...state,
+                isStartCancel: true,
+                isSuccessCancel: false,
+                isFailureCancel: false
+            }
+        case types.CANCEL_SEAT_SUCCESS:
+            return {
+                ...state,
+                isStartCancel: false,
+                isSuccessCancel: true
+            }
+        case types.CANCEL_SEAT_FAILURE:
+            return {
+                ...state,
+                isStartCancel: false,
+                isFailureCancel: true
             }
         default:
             return state

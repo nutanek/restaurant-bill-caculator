@@ -3,9 +3,21 @@
     background-color: #2F353F;
 }
 
-.page-layout .navs button {
+.page-layout .navs button,
+.page-layout .navs .btn-group {
     cursor: pointer;
     margin: 0 5px;
+}
+
+.page-layout .navs .dropdown-menu {
+    margin-top: -1px;
+    display: initial;
+    left: initial;    
+    right: 5px;
+}
+
+.page-layout .navs .dropdown-menu a {
+    text-decoration: none;
 }
 
 .page-layout > .content {
