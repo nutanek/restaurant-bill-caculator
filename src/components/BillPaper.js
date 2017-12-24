@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CardLayout from './../layouts/CardLayout'
+import billImg from './../images/receipt.svg'
 import './../styles/BillPaper.css'
 
 class BillPaper extends Component {
@@ -21,6 +22,9 @@ class BillPaper extends Component {
             return (
                 <CardLayout size="5">
                     <div className="bill-paper">
+                        <div className="row icon justify-content-center">
+                            <img src={billImg} alt="bill" />
+                        </div>
                         <div className="row header justify-content-center">
                             THANK YOU
                         </div>

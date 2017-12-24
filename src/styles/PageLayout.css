@@ -3,6 +3,11 @@
     background-color: #2F353F;
 }
 
+.page-layout .logo img {
+    cursor: pointer;
+    height: 40px;
+}
+
 .page-layout .navs button,
 .page-layout .navs .btn-group {
     cursor: pointer;
@@ -22,4 +27,10 @@
 
 .page-layout > .content {
     padding: 20px 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .page-layout .logo {
+        margin-bottom: 20px; 
+    }
 }

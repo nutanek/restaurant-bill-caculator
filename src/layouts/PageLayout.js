@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import logo from './../images/logo-sm.png'
 import './../styles/PageLayout.css'
 
 class PageLayout extends Component {
@@ -16,8 +17,10 @@ class PageLayout extends Component {
         return (
             <div className="container-fluid page-layout">
                 <div className="row header">
-                    <div className="col-md-6 text-center text-md-left logo">sss</div>
-                    <div className="col-md-6 navs text-center text-md-right">
+                    <div className="col-md-4 text-center text-md-left logo">
+                        <Link to='/'><img src={logo} className="img-fluid" alt="logo"/></Link>
+                    </div>
+                    <div className="col-md-8 navs text-center text-md-right">
                         <Link to='/bill'><button className="btn btn-success">Bill Calculator</button></Link>
                         <Link to='/coupon'><button className="btn btn-warning">Coupons</button></Link>
                         <div 

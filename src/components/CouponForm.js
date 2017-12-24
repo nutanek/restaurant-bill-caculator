@@ -43,7 +43,7 @@ class CouponForm extends Component {
         } = this.props
 
         return (
-            <CardLayout size="6">
+            <CardLayout size="8">
                 <form onSubmit={handleSubmit}>
                     <div className="row header justify-content-center">
                         COUPON MANAGER
@@ -148,7 +148,7 @@ class CouponForm extends Component {
                                         component={InputItem} 
                                         type="number" 
                                         validate={[required, number]}
-                                        placeholder="Come"
+                                        placeholder="Pay"
                                         warn={alphaNumeric}                                        
                                     />
                                 </div>

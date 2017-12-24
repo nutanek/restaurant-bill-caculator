@@ -20,7 +20,11 @@ const CouponList = (props) => {
                     <tr>
                         <th>Coupon Code</th>
                         <th>Type</th>
-                        <th className="d-none d-md-block">Options</th>
+                        <th 
+                            className="d-none d-md-block"
+                            style={{borderBottom: 0}}>
+                            Options
+                        </th>
                         <th></th>
                     </tr>
                 </thead>

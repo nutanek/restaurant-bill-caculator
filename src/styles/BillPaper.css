@@ -1,3 +1,7 @@
+.bill-paper .icon img {
+    width: 120px;
+}
+
 .bill-paper .table {
     border-top: 3px dashed #e8e8e8;
     font-size: 1.2em;
