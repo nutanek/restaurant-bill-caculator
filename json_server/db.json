@@ -1,0 +1,31 @@
+{
+  "coupons": [
+    {
+      "id": "LUCKY ONE",
+      "type": 1,
+      "options": {
+        "discountPercent": 15,
+        "custStart": 1,
+        "custEnd": -1
+      }
+    },
+	{
+      "id": "LUCKY TWO",
+      "type": 1,
+      "options": {
+        "discountPercent": 20,
+        "custStart": 2,
+        "custEnd": 2
+      }
+    },
+    {
+      "id": "4PAY3",
+      "type": 3,
+      "options": {
+        "come": 4,
+        "pay": 3
+      }
+    }
+  ],
+  "reservations": []
+}
