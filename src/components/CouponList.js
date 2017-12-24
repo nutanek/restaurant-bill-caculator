@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import CardLayout from './../layouts/CardLayout'
 import CouponItem from './CouponItem'
+import './../styles/CouponList.css'
 
 const CouponList = (props) => {
     let {
@@ -15,7 +16,7 @@ const CouponList = (props) => {
             <div className="row header justify-content-center">
                 COUPONS LIST
             </div>
-            <table className="table table-hover">
+            <table className="table coupon-list table-hover">
                 <thead>
                     <tr>
                         <th>Coupon Code</th>
