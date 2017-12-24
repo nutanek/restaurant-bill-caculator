@@ -4,7 +4,8 @@
 
 <h1 align="center">Scale Buffet</h1> <br>
 <p align="center">
-  Web application for buffet restaurant
+  🍣 Web application for buffet restaurant 🍜<br>
+  <a href="https://scale-buffet-festosgdhp.now.sh" target="_blank"><b>[DEMO]</b></a>
 </p>
 
 ## Introduction
@@ -33,7 +34,7 @@ You also show coupon for getting discount and you can book the seat that you wan
 ```bash
 $ yarn install
 ```
-#### **json-server**
+#### install **json-server**
 ```bash
 $ npm install -g json-server
 ```
