@@ -4,7 +4,7 @@ import { getTotalPrice } from './../utils/BillUtils'
 
 export const addBillCoupon = (coupon) => ({
     type: types.ADD_BILL_COUPON,
-    coupon
+    coupon: coupon.toUpperCase()
 })
 
 export const removeBillCoupon = (index) => ({

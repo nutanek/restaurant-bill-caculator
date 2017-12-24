@@ -18,7 +18,7 @@ const filterCouponInfo = (info) => {
         case 1:
         case 2:
             return {
-                id: couponCode,
+                id: couponCode.toUpperCase(),
                 type: couponType,
                 options: {
                     [couponType === 1 
